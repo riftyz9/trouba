@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
+    <title>inspektor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="overlay" class="overlay">
+        <div class="overlay-content page-enter-animation">
+            <h2>Click to reveal</h2>
+        </div>
+    </div>
+    <div id="content" class="container" style="visibility: hidden; ">
+        <div class="profile-card" data-tilt data-tilt-reverse="true" data-tilt-max="10" data-tilt-speed="2000">
+            <div class="profile-image">
+                <img src="assets/profile.webp" alt="pfp" loading="lazy"/>
+            </div>
+            <div class="profile-details">
+                <div class="username-wrapper">
+                    <h2 id="username">inspektor</h2>
+                </div>
+                <p id="status">why seek validation from the same world that crucified the perfect man ❤️✝️</p>
+                <p id="country">
+                    <img src="assets/cz.jpg" alt="vlajocka" class="flag" loading="lazy"> Czech Republic
+                </p>
+                <div class="socialki">
+                    <div class="social-icon discord" id="discord-icon-container">
+                        <i class="fab fa-discord icon-glow"></i>
+                        <div id="discord-popup" class="discord-popup">
+                            <span id="discord-username">inspektorpapa</span>
+                            <span id="copy-status" style="display: none;">Copied</span>
+                            <span class="copy-icon" id="copy-icon">
+                                <i class="fa-regular fa-copy"></i> 
+                                <i class="fa-solid fa-copy" style="display: none;"></i> 
+                            </span>
+                        </div>
+                    </div>
+                    <a href="https://steamcommunity.com/profiles/76561199077817728" target="_blank" class="social-icon steam" id="steam-icon-container">
+                        <i class="fa-brands fa-steam icon-glow"></i>
+                        <div id="steam-popup" class="steam-popup">
+                            <span>Steam <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/inspektor_papa/" target="_blank" class="social-icon instagram">
+                        <i class="fa-brands fa-instagram icon-glow"></i>
+                        <div id="instagram-popup" class="instagram-popup">
+                            <span>Instagram <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div id="rain-overlay"></div>
+
+    <audio id="background-music" src="/assets/keyswai.mp3" preload="metadata" loop></audio>
+    <video id="background-video" src="/assets/6XIZsuApHCW.mp4" preload="metadata" loop></video>
+
+    <script type="text/javascript" src="js/script.js" defer></script>
+    <script type="text/javascript" src="/js/detect.js"></script>
+</body>
+</html>

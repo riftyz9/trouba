@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: '1';
+    src: url('/fonts/1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes SlideUp {
+    0% {
+        transform: translateY(75px) scale(1.05);
+    }
+
+    60% {
+        transform: translateY(-5px) scale(0.95);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.page-enter-animation {
+    animation-name: SlideUp;
+    animation-duration: 0.35s; 
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    animation-iteration-count: 1; 
+}
+body {
+    margin: 0;
+    background-color: black;
+    font-family: '1', sans-serif;
+    position: relative;
+    display: flex;
+    cursor: url('/assets/mac-os-x.cur'), auto !important; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1); /* Fully opaque overlay */
+    z-index: 111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 0.05rem;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    filter: blur(8px);
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#rain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/assets/rain.gif') no-repeat center center;
+    background-size: cover;
+    z-index: 333;
+    pointer-events: none;
+    opacity: 0.05;
+}
+
+
+
+.profile-card {
+    background: rgba(34, 34, 34, 0.0);
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    outline: 1px solid #8f8f8f;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    backdrop-filter: blur(15px);
+    visibility: hidden; 
+}
+.profile-card.visible {
+    visibility: visible;
+}
+
+.profile-card .profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.profile-card .profile-details {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.profile-card h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.username-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.username-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/white.gif') no-repeat center;
+    background-size: cover;
+    z-index: 0;
+    padding: 5px;
+    border-radius: 15px;
+    pointer-events: none;
+}
+.profile-details #country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flag {
+    width: 16px;
+    height: 11px;
+    margin-right: 6px;
+}
+#username {
+    position: relative;
+    z-index: 1;
+}
+.socialki {
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    margin-top: 10px;
+    gap: 6px;
+}
+
+.social-icon {
+    font-size: 15px;
+    max-height: 15px;
+    width: auto; 
+    height: auto; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: url('/assets/mac-os-x.cur'), auto;
+    color: white; 
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 0;
+}
+
+.icon-glow {
+    text-shadow: 0 0 10px #ffffff;
+}
+
+.social-icon i {
+    margin-left: 6px; 
+}
+
+.discord-popup,
+#steam-popup,
+.instagram-popup {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);  
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+.social-icon:hover .discord-popup,
+.social-icon.steam:hover #steam-popup,
+.social-icon.instagram:hover .instagram-popup  {
+    opacity: 1;
+    pointer-events: auto;  
+    transform: translateX(-50%) scale(0.9);  
+}
+
+.social-icon:not(:hover) .discord-popup,
+.social-icon:not(:hover) #steam-popup,
+.social-icon:not(:hover) .instagram-popup  {
+    opacity: 0; 
+    transform: translateX(-50%) scale(0.7);  
+}
+
+/* phone shit */
+html, body {
+    overflow: hidden;
+    min-height: 100vh;
+    height: 100%;
+}
+
+/* DISABLE ACTION $$$$$$$$$$$ */
+.profile-image,
+.username-wrapper,
+#country, 
+.overlay-content h2 {
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+}
